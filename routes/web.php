@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingController::class, 'index']);
 Route::get('produk', [LandingController::class, 'produk']);
+Route::post('produk', [LandingController::class, 'cari'])->name('cari');
 Route::get('produk/{id}', [LandingController::class, 'produkDetail']);
 Route::get('profile', [LandingController::class, 'profile']);
 

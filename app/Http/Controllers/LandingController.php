@@ -25,6 +25,17 @@ class LandingController extends Controller
         return view('landing.produk', compact('data', 'profile'));
     }
 
+    public function cari(Request $request)
+    {
+        $this->validate($request, [
+            'nama' => 'required|string'
+        ]);
+
+        $profile = Profile::first();
+        $data = Produk::where('nama', 'like', '%' . $request->nama . '%')->get();
+        return view('landing.produk', compact('data', 'profile'));
+    }
+
     public function produkDetail($id)
     {
         $data = Produk::find($id);
