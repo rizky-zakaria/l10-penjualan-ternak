@@ -81,7 +81,8 @@ class ProdukController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = Produk::find($id);
+        return view('products.edit', compact('data'));
     }
 
     /**
@@ -89,7 +90,39 @@ class ProdukController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $this->validate($request, [
+            'nama' => 'required',
+            'deskripsi' => 'required',
+            'harga' => 'required|integer',
+            'gambar' => 'max:10000'
+        ]);
+
+        $produk = Produk::find($id);
+        $produk->nama = $request->nama;
+        $produk->harga = $request->harga;
+        $produk->deskripsi = $request->deskripsi;
+        $produk->update();
+
+        if ($request->has('gambar')) {
+            $image = $request->file('gambar');
+            $extension = $image->getClientOriginalExtension();
+            $rename = 'IMG' . date('YmdHis') . '.' . $extension;
+            $uploadPath = public_path('uploads');
+            if (!File::isDirectory($uploadPath)) {
+                File::makeDirectory($uploadPath, 0755, true, true);
+            }
+
+
+            if ($image->move($uploadPath, $rename)) {
+
+                $image = ImageProduk::where('produk_id', $id)->first();
+                $image->image = $rename;
+                $image->path = "uploads/" . $rename;
+                $image->update();
+                return redirect(url('admin/product'));
+            }
+        }
+        return redirect(url('admin/product'));
     }
 
     /**

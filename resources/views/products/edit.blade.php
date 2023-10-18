@@ -11,8 +11,9 @@
 
         <div class="col-12">
             <div class="card">
-                <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('product.update', $data->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="card-header">
                         <button type="submit" class="btn btn-sm btn-primary float-right">
                             <i class="fas fa-save"></i> Simpan
@@ -26,7 +27,8 @@
                                 <input type="text" name="nama" id="nama"
                                     class="form-control @error('nama')
                                     is-invalid
-                                @enderror">
+                                @enderror"
+                                    value="{{ $data->nama }}">
                                 @error('nama')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -36,7 +38,8 @@
                                 <input type="number" name="harga" id="harga"
                                     class="form-control @error('harga')
                                     is-invalid
-                                @enderror">
+                                @enderror"
+                                    value="{{ $data->harga }}">
                                 @error('harga')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -57,7 +60,9 @@
                                     class="my-editor form-control @error('deskripsi')
                                     is-invalid
                                 @enderror"
-                                    id="my-editor" cols="30" rows="10"></textarea>
+                                    id="my-editor" cols="30" rows="10">
+                                    {{ $data->deskripsi }}
+                                </textarea>
                                 @error('deskripsi')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
