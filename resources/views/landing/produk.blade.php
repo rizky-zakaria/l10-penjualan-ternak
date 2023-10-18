@@ -19,10 +19,11 @@
                                 <!-- Product Title --><a class="product-title d-block"
                                     href="single-product.html">{{ $item->nama }}</a>
                                 <!-- Product Price -->
-                                <p class="sale-price">Rp. {{ number_format($item->harga, 0, ',', '.') }}</p>
+                                <p class="sale-price" style="font-size: 13px">Rp.
+                                    {{ number_format($item->harga, 0, ',', '.') }}</p>
                                 <!-- Rating -->
                                 <div class="product-rating">{{ $item->views }}x Dilihat</div>
-                                <!-- Add to Cart --><a class="btn btn-success btn-sm"
+                                <!-- Add to Cart --><a class="btn btn-success btn-sm mt-3"
                                     href="{{ url('https://wa.me/' . $profile->telpon) }}" target="__blank"><i
                                         class="lni lni-phone"></i></a>
                             </div>
