@@ -62,7 +62,7 @@
                     </h5>
                     <h6>Deskripsi :</h6>
                     <p class="mb-0" style="text-align: justify">
-                        {{ $data->deskripsi }}
+                        {!! $data->deskripsi !!}
                     </p>
                     <a href="{{ url('https://wa.me/' . $profile->telpon) }}" target="__blank"
                         class="btn btn-success mt-5 w-100">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -11,7 +12,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //
+        $data = Profile::first();
+        return view('profile.index', compact('data'));
     }
 
     /**
@@ -51,7 +53,19 @@ class ProfileController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $this->validate($request, [
+            'nama' => 'required',
+            'alamat' => 'required',
+            'telpon' => 'required|integer'
+        ]);
+
+        $data = Profile::find($id);
+        $data->nama = $request->nama;
+        $data->alamat = $request->alamat;
+        $data->telpon = $request->telpon;
+        $data->update();
+
+        return redirect(url('admin/profile'));
     }
 
     /**

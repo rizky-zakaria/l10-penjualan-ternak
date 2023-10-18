@@ -312,6 +312,11 @@ return [
             'url'  => 'admin/product',
             'icon' => 'fas  fa-box',
         ],
+        [
+            'text' => 'Profile',
+            'url'  => 'admin/profile',
+            'icon' => 'fas  fa-user',
+        ],
     ],
 
     /*

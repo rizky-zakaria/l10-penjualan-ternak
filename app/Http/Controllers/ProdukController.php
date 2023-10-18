@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ImageProduk;
+use App\Models\Produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ProdukController extends Controller
 {
@@ -11,7 +14,8 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        //
+        $data = Produk::orderBy('created_at', 'desc')->get();
+        return view('products.index', compact('data'));
     }
 
     /**
@@ -19,7 +23,7 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
@@ -27,7 +31,41 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nama' => 'required',
+            'deskripsi' => 'required',
+            'harga' => 'required|integer',
+            'gambar' => 'required|max:10000'
+        ]);
+
+        $image = $request->file('gambar');
+        $extension = $image->getClientOriginalExtension();
+        $rename = 'IMG' . date('YmdHis') . '.' . $extension;
+        $uploadPath = public_path('uploads');
+        if (!File::isDirectory($uploadPath)) {
+            File::makeDirectory($uploadPath, 0755, true, true);
+        }
+
+
+        if ($image->move($uploadPath, $rename)) {
+            $produk = Produk::create([
+                'nama' => $request->nama,
+                'harga' => $request->harga,
+                'views' => 0,
+                'deskripsi' => $request->deskripsi
+            ]);
+
+            ImageProduk::Create([
+                'image' => $rename,
+                'produk_id' => $produk->id,
+                'path' => "uploads/" . $rename
+            ]);
+            // toast('Berhasil menambahkan data!', 'success');
+            return redirect(url('admin/product'));
+        }
+
+        // toast('Gagal menambahkan data!', 'success');
+        return redirect(url('admin/product'));
     }
 
     /**
@@ -59,6 +97,8 @@ class ProdukController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = Produk::find($id);
+        $data->delete();
+        return redirect(url('admin/product'));
     }
 }

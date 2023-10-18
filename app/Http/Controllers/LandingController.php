@@ -28,6 +28,8 @@ class LandingController extends Controller
     public function produkDetail($id)
     {
         $data = Produk::find($id);
+        $data->views = $data->views + 1;
+        $data->upadte();
         $profile = Profile::first();
         return view('landing.detail-produk', compact('data', 'profile'));
     }
