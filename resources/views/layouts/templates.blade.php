@@ -20,7 +20,7 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
         rel="stylesheet">
     <!-- Favicon-->
-    <link rel="icon" href="{{ asset('landings/img/icons/icon-72x72.png') }}">
+    <link rel="icon" href="{{ asset('landings/img/icons/logo-baroqah.png') }}">
     <!-- Apple Touch Icon-->
     <link rel="apple-touch-icon" href="{{ asset('landings/img/icons/icon-96x96.png') }}">
     <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('landings/img/icons/icon-152x152.png') }}">
