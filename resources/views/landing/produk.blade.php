@@ -23,7 +23,7 @@
                                 <!-- Rating -->
                                 <div class="product-rating">{{ $item->views }}x Dilihat</div>
                                 <!-- Add to Cart --><a class="btn btn-success btn-sm"
-                                    href="{{ url('https://wa.me/' . $profile->telepon) }}" target="__blank"><i
+                                    href="{{ url('https://wa.me/' . $profile->telpon) }}" target="__blank"><i
                                         class="lni lni-phone"></i></a>
                             </div>
                         </div>
