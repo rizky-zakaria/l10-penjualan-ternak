@@ -3,7 +3,7 @@
     <div class="top-products-area py-3 mt-5 mb-5">
         <div class="container">
             <div class="section-heading d-flex align-items-center justify-content-between">
-                <h6>Top Products</h6><a class="btn" href="shop-grid.html">View All</a>
+                <h6>Top Products</h6><a class="btn" href="{{ url('produk') }}">View All</a>
             </div>
             <div class="row g-3">
                 @foreach ($data as $item)
