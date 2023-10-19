@@ -12,8 +12,9 @@
                                 <h4 class="text-white mb-0" data-animation="fadeInUp" data-delay="100ms"
                                     data-duration="1000ms">Amazon Echo</h4>
                                 <p class="text-white" data-animation="fadeInUp" data-delay="400ms" data-duration="1000ms">
-                                    3rd Generation, Charcoal</p><a class="btn btn-primary btn-sm" href="#"
-                                    data-animation="fadeInUp" data-delay="800ms" data-duration="1000ms">Buy Now</a>
+                                    3rd Generation, Charcoal</p><a class="btn btn-primary btn-sm"
+                                    href="{{ url('https://wa.me/' . $profile->telpon) }}" data-animation="fadeInUp"
+                                    data-delay="800ms" data-duration="1000ms">Hubungi Sekarang</a>
                             </div>
                         </div>
                     </div>
@@ -24,8 +25,9 @@
                                 <h4 class="text-white mb-0" data-animation="fadeInUp" data-delay="100ms"
                                     data-duration="1000ms">Light Candle</h4>
                                 <p class="text-white" data-animation="fadeInUp" data-delay="400ms" data-duration="1000ms">
-                                    Now only $22</p><a class="btn btn-success btn-sm" href="#"
-                                    data-animation="fadeInUp" data-delay="500ms" data-duration="1000ms">Buy Now</a>
+                                    Now only $22</p><a class="btn btn-success btn-sm"
+                                    href="{{ url('https://wa.me/' . $profile->telpon) }}" data-animation="fadeInUp"
+                                    data-delay="500ms" data-duration="1000ms">Hubungi Sekarang</a>
                             </div>
                         </div>
                     </div>
@@ -36,8 +38,9 @@
                                 <h4 class="text-white mb-0" data-animation="fadeInUp" data-delay="100ms"
                                     data-duration="1000ms">Best Furniture</h4>
                                 <p class="text-white" data-animation="fadeInUp" data-delay="400ms" data-duration="1000ms">3
-                                    years warranty</p><a class="btn btn-danger btn-sm" href="#"
-                                    data-animation="fadeInUp" data-delay="800ms" data-duration="1000ms">Buy Now</a>
+                                    years warranty</p><a class="btn btn-danger btn-sm"
+                                    href="{{ url('https://wa.me/' . $profile->telpon) }}" data-animation="fadeInUp"
+                                    data-delay="800ms" data-duration="1000ms">Hubungi Sekarang</a>
                             </div>
                         </div>
                     </div>
@@ -48,32 +51,32 @@
         <div class="product-catagories-wrapper py-3">
             <div class="container">
                 <div class="section-heading">
-                    <h6>Product Categories</h6>
+                    <h6>Kategori Produk</h6>
                 </div>
                 <div class="product-catagory-wrap">
                     <div class="row g-3">
                         <!-- Single Catagory Card -->
                         <div class="col-4">
                             <div class="card catagory-card">
-                                <div class="card-body"><a class="text-success" href="catagory.html">
+                                <div class="card-body"><a class="text-success" href="{{ url('produk/kategori/sapi') }}">
                                         <img src="{{ asset('landings/img/icons/cow.svg') }}" width="28" height="28"
-                                            alt=""><span>Sapi Ternak</span></a></div>
+                                            alt=""><span>Sapi</span></a></div>
                             </div>
                         </div>
                         <!-- Single Catagory Card -->
                         <div class="col-4">
                             <div class="card catagory-card">
-                                <div class="card-body"><a class="text-danger" href="catagory.html">
-                                        <img src="{{ asset('landings/img/icons/goat.svg') }}" width="28" height="28"
-                                            alt=""><span>Kambing Ternak</span></a></div>
-                            </div>
-                        </div>
-                        <!-- Single Catagory Card -->
-                        <div class="col-4">
-                            <div class="card catagory-card">
-                                <div class="card-body"><a class="text-info" href="catagory.html">
+                                <div class="card-body"><a class="text-danger" href="{{ url('produk/kategori/ayam') }}">
                                         <img src="{{ asset('landings/img/icons/chicken.svg') }}" width="28"
-                                            height="28" alt=""><span>Ayam Ternak</span></a></div>
+                                            height="28" alt=""><span>Ayam</span></a></div>
+                            </div>
+                        </div>
+                        <!-- Single Catagory Card -->
+                        <div class="col-4">
+                            <div class="card catagory-card">
+                                <div class="card-body"><a class="text-info" href="{{ url('produk/kategori/sayur') }}">
+                                        <img src="{{ asset('landings/img/icons/eeg.svg') }}" width="28" height="28"
+                                            alt=""><span>Sayur & Telur</span></a></div>
                             </div>
                         </div>
                     </div>
@@ -94,11 +97,12 @@
                                     </i></a>
                                     <!-- Thumbnail --><a class="product-thumbnail d-block"
                                         href="{{ url('produk/' . $item->id) }}"><img class="mb-2"
-                                            src="{{ asset($item->image_produk->path) }}" alt="">
+                                            src="{{ asset($item->image_produk->path) }}"
+                                            style="width: 300px; height: 150px;" alt="">
                                         <!-- Offer Countdown Timer: Please use event time this format: YYYY/MM/DD hh:mm:ss -->
                                     </a>
                                     <!-- Product Title --><a class="product-title d-block"
-                                        href="single-product.html">{{ $item->nama }}</a>
+                                        href="{{ url('produk/' . $item->id) }}">{{ $item->nama }}</a>
                                     <!-- Product Price -->
                                     <p class="sale-price" style="font-size: 13px">Rp.
                                         {{ number_format($item->harga, 0, ',', '.') }}</p>

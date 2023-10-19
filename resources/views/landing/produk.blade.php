@@ -13,11 +13,12 @@
                                 </i></a>
                                 <!-- Thumbnail --><a class="product-thumbnail d-block"
                                     href="{{ url('produk/' . $item->id) }}"><img class="mb-2"
-                                        src="{{ asset($item->image_produk->path) }}" alt="">
+                                        src="{{ asset($item->image_produk->path) }}" style="width: 300px; height: 150px;"
+                                        alt="">
                                     <!-- Offer Countdown Timer: Please use event time this format: YYYY/MM/DD hh:mm:ss -->
                                 </a>
                                 <!-- Product Title --><a class="product-title d-block"
-                                    href="single-product.html">{{ $item->nama }}</a>
+                                    href="{{ url('produk/' . $item->id) }}">{{ $item->nama }}</a>
                                 <!-- Product Price -->
                                 <p class="sale-price" style="font-size: 13px">Rp.
                                     {{ number_format($item->harga, 0, ',', '.') }}</p>

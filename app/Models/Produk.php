@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Produk extends Model
 {
     use HasFactory;
-    protected $fillable = ['nama', 'harga', 'views', 'deskripsi'];
+    protected $fillable = ['nama', 'harga', 'views', 'deskripsi', 'kategori'];
 
     public function image_produk()
     {

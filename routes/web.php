@@ -3,6 +3,7 @@
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,7 @@ Route::get('/', [LandingController::class, 'index']);
 Route::get('produk', [LandingController::class, 'produk']);
 Route::post('produk', [LandingController::class, 'cari'])->name('cari');
 Route::get('produk/{id}', [LandingController::class, 'produkDetail']);
+Route::get('produk/kategori/{kategori}', [LandingController::class, 'produkKategori']);
 Route::get('profile', [LandingController::class, 'profile']);
 
 Auth::routes();
@@ -29,5 +31,6 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::resource('product', ProdukController::class);
         Route::resource('profile', ProfileController::class);
+        Route::resource('slide', SliderController::class);
     });
 });

@@ -317,6 +317,11 @@ return [
             'url'  => 'admin/profile',
             'icon' => 'fas  fa-user',
         ],
+        [
+            'text' => 'Slide',
+            'url'  => 'admin/slide',
+            'icon' => 'fas  fa-images',
+        ],
     ],
 
     /*

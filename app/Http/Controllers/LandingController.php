@@ -25,6 +25,15 @@ class LandingController extends Controller
         return view('landing.produk', compact('data', 'profile'));
     }
 
+    public function produkKategori($kategori)
+    {
+        $data = Produk::where('kategori', $kategori)
+            ->orderBy('views', 'desc')
+            ->get();
+        $profile = Profile::first();
+        return view('landing.produk', compact('data', 'profile'));
+    }
+
     public function cari(Request $request)
     {
         $this->validate($request, [

@@ -35,7 +35,8 @@ class ProdukController extends Controller
             'nama' => 'required',
             'deskripsi' => 'required',
             'harga' => 'required|integer',
-            'gambar' => 'required|max:10000'
+            'gambar' => 'required|max:10000',
+            'kategori' => 'required'
         ]);
 
         $image = $request->file('gambar');
@@ -52,7 +53,8 @@ class ProdukController extends Controller
                 'nama' => $request->nama,
                 'harga' => $request->harga,
                 'views' => 0,
-                'deskripsi' => $request->deskripsi
+                'deskripsi' => $request->deskripsi,
+                'kategori' => $request->kategori
             ]);
 
             ImageProduk::Create([
@@ -94,13 +96,15 @@ class ProdukController extends Controller
             'nama' => 'required',
             'deskripsi' => 'required',
             'harga' => 'required|integer',
-            'gambar' => 'max:10000'
+            'gambar' => 'max:10000',
+            'kategori' => 'required'
         ]);
 
         $produk = Produk::find($id);
         $produk->nama = $request->nama;
         $produk->harga = $request->harga;
         $produk->deskripsi = $request->deskripsi;
+        $produk->kategori = $request->kategori;
         $produk->update();
 
         if ($request->has('gambar')) {

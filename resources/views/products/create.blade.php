@@ -41,7 +41,23 @@
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-                            <div class="col-12">
+                            <div class="col-6">
+                                <label for="kategori">Kategori</label>
+                                <select name="kategori" id="kategori"
+                                    class="form-control @error('kategori')
+                                    is-invalid
+                                @enderror"
+                                    required>
+                                    <option selected disabled>Pilih Kategori</option>
+                                    <option value="sapi">Sapi</option>
+                                    <option value="ayam">Ayam</option>
+                                    <option value="sayur">Sayur & Telur</option>
+                                </select>
+                                @error('kategori')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-6">
                                 <label for="gambar">Gambar</label>
                                 <input type="file" name="gambar" id="gambar"
                                     class="form-control @error('gambar')
