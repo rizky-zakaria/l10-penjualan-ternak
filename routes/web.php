@@ -32,5 +32,6 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('product', ProdukController::class);
         Route::resource('profile', ProfileController::class);
         Route::resource('slide', SliderController::class);
+        Route::get('slide/status/{id}', [SliderController::class, 'status'])->name('slide.aktif');
     });
 });

@@ -6,44 +6,21 @@
                 <!-- Hero Slides-->
                 <div class="hero-slides owl-carousel">
                     <!-- Single Hero Slide-->
-                    <div class="single-hero-slide" style="background-image: url({{ asset('landings/img/bg-img/1.jpg') }})">
-                        <div class="slide-content h-100 d-flex align-items-center">
-                            <div class="slide-text">
-                                <h4 class="text-white mb-0" data-animation="fadeInUp" data-delay="100ms"
-                                    data-duration="1000ms">Amazon Echo</h4>
-                                <p class="text-white" data-animation="fadeInUp" data-delay="400ms" data-duration="1000ms">
-                                    3rd Generation, Charcoal</p><a class="btn btn-primary btn-sm"
-                                    href="{{ url('https://wa.me/' . $profile->telpon) }}" data-animation="fadeInUp"
-                                    data-delay="800ms" data-duration="1000ms">Hubungi Sekarang</a>
+                    @foreach ($slide as $item)
+                        <div class="single-hero-slide" style="background-image: url({{ asset($item->path) }})">
+                            <div class="slide-content h-100 d-flex align-items-center">
+                                <div class="slide-text">
+                                    <h4 class="text-white mb-0" data-animation="fadeInUp" data-delay="100ms"
+                                        data-duration="1000ms">{{ $item->title }}</h4>
+                                    <p class="text-white" data-animation="fadeInUp" data-delay="400ms"
+                                        data-duration="1000ms">
+                                        {{ $item->subtitle }}</p><a class="btn btn-primary btn-sm"
+                                        href="{{ url('https://wa.me/' . $profile->telpon) }}" data-animation="fadeInUp"
+                                        data-delay="800ms" data-duration="1000ms">Hubungi Sekarang</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Single Hero Slide-->
-                    <div class="single-hero-slide" style="background-image: url({{ asset('landings/img/bg-img/2.jpg') }})">
-                        <div class="slide-content h-100 d-flex align-items-center">
-                            <div class="slide-text">
-                                <h4 class="text-white mb-0" data-animation="fadeInUp" data-delay="100ms"
-                                    data-duration="1000ms">Light Candle</h4>
-                                <p class="text-white" data-animation="fadeInUp" data-delay="400ms" data-duration="1000ms">
-                                    Now only $22</p><a class="btn btn-success btn-sm"
-                                    href="{{ url('https://wa.me/' . $profile->telpon) }}" data-animation="fadeInUp"
-                                    data-delay="500ms" data-duration="1000ms">Hubungi Sekarang</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Hero Slide-->
-                    <div class="single-hero-slide" style="background-image: url({{ asset('landings/img/bg-img/3.jpg') }})">
-                        <div class="slide-content h-100 d-flex align-items-center">
-                            <div class="slide-text">
-                                <h4 class="text-white mb-0" data-animation="fadeInUp" data-delay="100ms"
-                                    data-duration="1000ms">Best Furniture</h4>
-                                <p class="text-white" data-animation="fadeInUp" data-delay="400ms" data-duration="1000ms">3
-                                    years warranty</p><a class="btn btn-danger btn-sm"
-                                    href="{{ url('https://wa.me/' . $profile->telpon) }}" data-animation="fadeInUp"
-                                    data-delay="800ms" data-duration="1000ms">Hubungi Sekarang</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -110,9 +87,8 @@
                                     <div class="product-rating">
                                         {{ $item->views }}x Dilihat
                                     </div>
-                                    <a class="btn btn-success btn-sm"
-                                        href="{{ url('https://wa.me/' . $profile->telpon) }}" target="__blank"><i
-                                            class="lni lni-phone"></i></a>
+                                    <a class="btn btn-success btn-sm" href="{{ url('https://wa.me/' . $profile->telpon) }}"
+                                        target="__blank"><i class="lni lni-phone"></i></a>
                                 </div>
                             </div>
                         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Produk;
 use App\Models\Profile;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class LandingController extends Controller
@@ -14,7 +15,8 @@ class LandingController extends Controller
             ->limit(8)
             ->get();
         $profile = Profile::first();
-        return view('landing.index', compact('data', 'profile'));
+        $slide = Slider::where('status', 'aktif')->get();
+        return view('landing.index', compact('data', 'profile', 'slide'));
     }
 
     public function produk()
