@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProfileController;
@@ -32,6 +33,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('product', ProdukController::class);
         Route::resource('profile', ProfileController::class);
         Route::resource('slide', SliderController::class);
+        Route::resource('galeri', GaleriController::class);
         Route::get('slide/status/{id}', [SliderController::class, 'status'])->name('slide.aktif');
     });
 });

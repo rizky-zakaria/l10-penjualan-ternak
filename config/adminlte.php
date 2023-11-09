@@ -320,6 +320,11 @@ return [
         [
             'text' => 'Slide',
             'url'  => 'admin/slide',
+            'icon' => 'fas  fa-image',
+        ],
+        [
+            'text' => 'Galeri',
+            'url'  => 'admin/galeri',
             'icon' => 'fas  fa-images',
         ],
     ],

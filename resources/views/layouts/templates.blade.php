@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, shrink-to-fit=no">
-    <meta name="description" content="Suha - Multipurpose Ecommerce Mobile HTML Template">
+    <meta name="description" content="Baroqah Farm Gorontalo">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#100DD1">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -81,6 +81,8 @@
                     <li class="{{ Request::is('produk') ? 'active' : '' }}"><a href="{{ url('/produk') }}"><i
                                 class="lni lni-shopping-basket"></i>Ternak</a>
                     </li>
+                    <li class="{{ Request::is('galeri') ? 'active' : '' }}"><a href="{{ url('/galeri') }}"><i
+                                class="lni lni-gallery"></i>Galeri</a></li>
                     <li class="{{ Request::is('profile') ? 'active' : '' }}"><a href="{{ url('/profile') }}"><i
                                 class="lni lni-user"></i>Profile</a></li>
                 </ul>

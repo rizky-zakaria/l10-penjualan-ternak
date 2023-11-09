@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Galeri;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -64,6 +65,9 @@ class SliderController extends Controller
                 'path' => "uploads/" . $rename,
                 'status' => 'non-aktif'
             ]);
+            Galeri::create([
+                'path' => "uploads/" . $rename
+            ]);
 
             // toast('Berhasil menambahkan data!', 'success');
             return redirect(url('admin/slide'));
@@ -118,6 +122,9 @@ class SliderController extends Controller
                 $produk->subtitle = $request->subtitle;
                 $produk->path = "uploads/" . $rename;
                 $produk->update();
+                Galeri::create([
+                    'path' => "uploads/" . $rename
+                ]);
 
                 return redirect(url('admin/slide'));
             }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Galeri;
 use App\Models\ImageProduk;
 use App\Models\Produk;
 use Illuminate\Http\Request;
@@ -60,6 +61,9 @@ class ProdukController extends Controller
             ImageProduk::Create([
                 'image' => $rename,
                 'produk_id' => $produk->id,
+                'path' => "uploads/" . $rename
+            ]);
+            Galeri::create([
                 'path' => "uploads/" . $rename
             ]);
             // toast('Berhasil menambahkan data!', 'success');
@@ -123,6 +127,9 @@ class ProdukController extends Controller
                 $image->image = $rename;
                 $image->path = "uploads/" . $rename;
                 $image->update();
+                Galeri::create([
+                    'path' => "uploads/" . $rename
+                ]);
                 return redirect(url('admin/product'));
             }
         }
