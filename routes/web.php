@@ -24,6 +24,7 @@ Route::post('produk', [LandingController::class, 'cari'])->name('cari');
 Route::get('produk/{id}', [LandingController::class, 'produkDetail']);
 Route::get('produk/kategori/{kategori}', [LandingController::class, 'produkKategori']);
 Route::get('profile', [LandingController::class, 'profile']);
+Route::get('galeri', [LandingController::class, 'galeri']);
 
 Auth::routes();
 

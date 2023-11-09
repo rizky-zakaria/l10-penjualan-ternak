@@ -35,7 +35,7 @@ class ProdukController extends Controller
         $this->validate($request, [
             'nama' => 'required',
             'deskripsi' => 'required',
-            'harga' => 'required|integer',
+            'harga' => 'required|string',
             'gambar' => 'required|max:10000',
             'kategori' => 'required'
         ]);

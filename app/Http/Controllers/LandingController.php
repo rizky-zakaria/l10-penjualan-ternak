@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Galeri;
 use App\Models\Produk;
 use App\Models\Profile;
 use App\Models\Slider;
@@ -60,5 +61,11 @@ class LandingController extends Controller
     {
         $profile = Profile::first();
         return view('landing.profile', compact('profile'));
+    }
+
+    public function galeri()
+    {
+        $data = Galeri::orderBy('created_at', 'desc')->get();
+        return view('landing.galeri', compact('data'));
     }
 }

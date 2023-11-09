@@ -81,8 +81,10 @@
                                     <!-- Product Title --><a class="product-title d-block"
                                         href="{{ url('produk/' . $item->id) }}">{{ $item->nama }}</a>
                                     <!-- Product Price -->
-                                    <p class="sale-price" style="font-size: 13px">Rp.
-                                        {{ number_format($item->harga, 0, ',', '.') }}</p>
+                                    <p class="sale-price" style="font-size: 13px">
+                                        {{-- Rp. {{ number_format($item->harga, 0, ',', '.') }} --}}
+                                        {{ $item->harga }}
+                                    </p>
                                     <!-- Rating -->
                                     <div class="product-rating">
                                         {{ $item->views }}x Dilihat

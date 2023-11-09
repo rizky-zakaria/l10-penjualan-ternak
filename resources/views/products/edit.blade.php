@@ -35,7 +35,7 @@
                             </div>
                             <div class="col-6">
                                 <label for="harga">Harga</label>
-                                <input type="number" name="harga" id="harga"
+                                <input type="text" name="harga" id="harga"
                                     class="form-control @error('harga')
                                     is-invalid
                                 @enderror"

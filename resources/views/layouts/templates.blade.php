@@ -22,10 +22,10 @@
     <!-- Favicon-->
     <link rel="icon" href="{{ asset('landings/img/icons/logo-baroqah.png') }}">
     <!-- Apple Touch Icon-->
-    <link rel="apple-touch-icon" href="{{ asset('landings/img/icons/icon-96x96.png') }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('landings/img/icons/icon-152x152.png') }}">
-    <link rel="apple-touch-icon" sizes="167x167" href="{{ asset('landings/img/icons/icon-167x167.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('landings/img/icons/icon-180x180.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('landings/img/icons/logo-baroqah.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('landings/img/icons/logo-baroqah.png') }}">
+    <link rel="apple-touch-icon" sizes="167x167" href="{{ asset('landings/img/icons/logo-baroqah.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('landings/img/icons/logo-baroqah.png') }}">
     <!-- CSS Libraries-->
     <link rel="stylesheet" href="{{ asset('landings/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('landings/css/animate.css') }}">
